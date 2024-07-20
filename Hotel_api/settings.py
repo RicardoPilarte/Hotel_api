@@ -20,6 +20,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['hotelapi-production.up.railway.app']
 
+CORS_ALLOWED_ORIGINS  = [
+        'https://hotel-angv2.vercel.app',
+        'http://localhost:4200'
+    ]
+
 CSRF_TRUSTED_ORIGINS = ['https://hotelapi-production.up.railway.app']
 
 # Application definition
