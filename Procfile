@@ -1,1 +1,1 @@
-web: python manage.py collectstatic && gunicorn Hotel_api.wsgi
+web: python manage.py collectstatic --noinput && daphne Hotel_api.asgi:application --port $PORT --bind 0.0.0.0 -v2

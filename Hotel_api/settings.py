@@ -40,9 +40,12 @@ LOCAL_APPS = [
     'apps.usuarios',
     'apps.clientes',
     'apps.reservas',
+    'apps.websocket'
 ]
 
 THIRD_PARTY_APPS = [
+    'channels',
+    'daphne',
     'corsheaders',
     'rest_framework',
     'rest_framework_simplejwt',
@@ -99,6 +102,18 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'Hotel_api.wsgi.application'
+
+# Channels
+ASGI_APPLICATION = 'Hotel_api.asgi.application'
+
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [(os.environ.get('REDIS_PUBLIC_URL'))],
+        },
+    },
+}
 
 
 # Database
