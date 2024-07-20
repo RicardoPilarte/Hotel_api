@@ -1,1 +1,1 @@
-web: python manage.py collecstatic && gunicorn Hotel_api.wsgi
+web: python manage.py collectstatic && gunicorn Hotel_api.wsgi
