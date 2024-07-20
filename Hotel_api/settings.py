@@ -16,7 +16,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-&m5lnu@r@a$g$k@-4w6zyf^50k@+#!f!!)pgul!89#e(ce&v50'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['hotelapi-production.up.railway.app']
 
@@ -111,11 +111,13 @@ WSGI_APPLICATION = 'Hotel_api.wsgi.application'
 # Channels
 ASGI_APPLICATION = 'Hotel_api.asgi.application'
 
+REDIS_URL = os.getenv('REDIS_URL') if os.getenv('DEBUG', 'False') == 'True' else os.getenv('REDIS_PRIVATE_URL')
+
 CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
-            "hosts": [(os.environ.get('REDIS_PUBLIC_URL'))],
+            "hosts": [REDIS_URL],
         },
     },
 }
