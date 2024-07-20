@@ -20,7 +20,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['hotelapi-production.up.railway.app']
 
-CSRF_TRUSTED_ALLOWED = ['https://hotelapi-production.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://hotelapi-production.up.railway.app']
 
 # Application definition
 
