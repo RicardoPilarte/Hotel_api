@@ -111,13 +111,12 @@ WSGI_APPLICATION = 'Hotel_api.wsgi.application'
 # Channels
 ASGI_APPLICATION = 'Hotel_api.asgi.application'
 
-REDIS_URL = os.getenv('REDIS_URL') if os.getenv('DEBUG', 'False') == 'True' else os.getenv('REDIS_PRIVATE_URL')
-
 CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
-            "hosts": [REDIS_URL],
+            "hosts": [(os.environ.get('REDIS_PUBLIC_URL'))],
+
         },
     },
 }
