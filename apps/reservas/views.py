@@ -16,8 +16,8 @@ class ClassQuery():
     
 class ListadoReserva(APIView, ClassQuery):
     
-    permissions = [IsAuthenticated]
-    permissions = (DjangoModelPermissions)
+    permissions = [IsAuthenticated, DjangoModelPermissions]
+    #permissions = (DjangoModelPermissions)
     
     def get(self, request):
         try:
@@ -69,8 +69,8 @@ class ListadoReserva(APIView, ClassQuery):
 
 class DetalleReserva(APIView, ClassQuery):
     
-    permission_classes = [IsAuthenticated]
-    permission_classes = (DjangoModelPermissions)
+    permission_classes = [IsAuthenticated, DjangoModelPermissions]
+    #permission_classes = (DjangoModelPermissions)
     
     def get(self ,pk):
         try:
