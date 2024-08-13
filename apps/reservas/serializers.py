@@ -13,6 +13,7 @@ class reservaSerializer(serializers.ModelSerializer):
                   'eliminado',
                   'cliente_id',
                   'habitacion_id',
+                  'descripcion',
                   )
         depth = 1
 
